@@ -20,8 +20,8 @@ spring:
       stat-view-servlet:
         allow: true
       test-on-borrow: true
-    password: 123456
-    url: jdbc:mysql://localhost:3306/wetech_admin
+    password: root123456
+    url: jdbc:mysql://192.168.0.65:13306/rbac_admin
     username: root
   thymeleaf:
     cache: false

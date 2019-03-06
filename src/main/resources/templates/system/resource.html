@@ -189,7 +189,8 @@
                     <div class="form-group">
                         <label class="control-label" for="type"><span class="asterisk">*</span>资源类型:</label>
                         <select class="form-control" name="type" id="type">
-                            <option th:each="type : ${types}" th:value="${type}" th:text="${type.info}">资源类型不存在</option>
+                            <option value="MENU" > 菜单</option>
+                            <option value="BUTTON" >按钮 </option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -360,7 +361,7 @@
                 name: resourceList[i].name,
                 parentIds: resourceList[i].parentIds,
                 type: resourceList[i].type,
-                typeName: resourceList[i].typeName,
+                typeName: resourceList[i].type == "MENU" ? "菜单" : "按钮",
                 rUrl: resourceList[i].url,
                 permission: resourceList[i].permission,
                 available: resourceList[i].available,
@@ -406,7 +407,7 @@
             var spaceStr = "<span style='height:1px;display: inline-block;width:" + (spaceWidth * treeNode.level) + "px'></span>";
             switchObj.before(spaceStr);
             var editStr = '';
-            editStr += '<div class="diy">' + (treeNode.typeName || '&nbsp;') + '</div>';
+            editStr += '<div class="diy">' + (treeNode.typeName || '11&nbsp;') + '</div>';
             editStr += '<div class="diy">' + (treeNode.rUrl || '&nbsp;') + '</div>';
             editStr += '<div class="diy">' + (treeNode.permission || '&nbsp;') + '</div>';
             editStr += '<div class="diy"><span class="' + (treeNode.rIcon || '&nbsp;') + '"></span></div>';
