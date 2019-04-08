@@ -19,18 +19,18 @@ create table sys_user (
 create unique index idx_sys_user_username on sys_user(username);
 create index idx_sys_user_organization_id on sys_user(organization_id);
 
-create table sys_organization (
-  id bigint auto_increment COMMENT '编号',
-  name varchar(100) COMMENT '组织名称',
-  parent_id bigint COMMENT '父编号',
-  parent_ids varchar(100) COMMENT '父编号列表',
-  available bool default false  COMMENT '是否有效',
-  priority int(11) COMMENT '优先级',
-  leaf bool default false COMMENT '叶子节点',
-  constraint pk_sys_organization primary key(id)
-) charset=utf8 ENGINE=InnoDB  COMMENT '组织机构表';
-create index idx_sys_organization_parent_id on sys_organization(parent_id);
-create index idx_sys_organization_parent_ids on sys_organization(parent_ids);
+CREATE TABLE `sys_organization` (
+    `id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
+    `name` VARCHAR(100) COLLATE utf8_bin  DEFAULT NULL COMMENT '组织名称',
+    `parent_id` BIGINT(20) DEFAULT NULL COMMENT '父编号',
+    `parent_ids` VARCHAR(100) DEFAULT NULL COMMENT '父编号列表',
+    `available` TINYINT(1) DEFAULT '0' COMMENT '是否有效',
+    `priority` INT(11) DEFAULT NULL COMMENT '优先级',
+    `leaf` TINYINT(1) DEFAULT '0' COMMENT '叶子节点',
+    PRIMARY KEY (`id`),
+    KEY `idx_sys_organization_parent_id` (`parent_id`),
+    KEY `idx_sys_organization_parent_ids` (`parent_ids`)
+) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='组织机构表'
 
 create table sys_resource (
   id bigint auto_increment COMMENT '编号',

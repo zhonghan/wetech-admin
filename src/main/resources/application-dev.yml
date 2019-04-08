@@ -1,13 +1,13 @@
 debug: true
 logging:
   level:
-    root: debug
+    root: info
     tech:
       wetech:
         admin:
           mapper: trace
 server:
-  port: 8080
+  port: 8888
   servlet:
     context-path: /wetech-admin
 spring:
@@ -21,7 +21,7 @@ spring:
         allow: true
       test-on-borrow: true
     password: root123456
-    url: jdbc:mysql://192.168.0.65:13306/rbac_admin
+    url: jdbc:mysql://192.168.0.65:13306/wetech_admin?useUnicode=true&characterEncoding=UTF-8&noAccessToProcedureBodies=true&allowMultiQueries=true&rewriteBatchedStatements=true
     username: root
   thymeleaf:
     cache: false

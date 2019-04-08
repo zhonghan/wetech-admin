@@ -2,7 +2,7 @@ logging:
   level:
     root: info
 server:
-  port: 8080
+  port: 8888
   servlet:
     context-path: /wetech-admin
 spring:
@@ -15,8 +15,8 @@ spring:
       stat-view-servlet:
         allow: true
       test-on-borrow: true
-    password: 123456
-    url: jdbc:mysql://localhost:3306/wetech_admin
+    password: root123456
+    url: jdbc:mysql://192.168.0.65:13306/wetech_admin?useUnicode=true&characterEncoding=UTF-8&noAccessToProcedureBodies=true&allowMultiQueries=true&rewriteBatchedStatements=true
     username: root
   thymeleaf:
     cache: true
